@@ -1,0 +1,21 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+@font-face {
+    font-family: 'cocogoose';
+    font-weight: 400;
+    src: url('fonts/cocogoose.woff2') format('woff2'), url('fonts/cocogoose.woff') format('woff'), url('fonts/cocogoose.ttf') format('truetype'), url('fonts/cocogoose.otf') format('opentype');
+}
+
+@font-face {
+    font-family: Roboto, 'Roboto';
+    src: local('Roboto');
+}
+
+@font-face {
+    font-family: Helvetica, 'Helvetica';
+    src: local('Helvetica');
+}
+
+@font-face {
+    font-family: Helvetica-Neue, 'Helvetica-Neue';
+    src: local('Helvetica-Neue'), local('Helvetica Neue');
+}

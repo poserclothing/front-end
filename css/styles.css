@@ -1,0 +1,24 @@
+html,
+body {
+    width: 100%;
+    font-family: 'Open Sans', 'Roboto', 'Helvetica-Neue', 'Helvetica', Arail, sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: rgba(54, 54, 54, .98);
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    background-color: #FAFAFA;
+}
+
+body {
+    font-size: 12pt;
+}
+
+header .logo {
+    font-family: 'cocogoose';
+    font-size: 24pt;
+    letter-spacing: .34pt;
+    padding: 1pt 12pt 1pt 12pt;
+    border: solid 3px rgba(54, 54, 54, .98);
+    border-radius: 1px;
+}
