@@ -85,12 +85,14 @@
     <script src="js/two.js"></script>
     <script>
         function draw(two) {
+            two.clear()
             var star
-            for (i = 0; i < 300; i++) {
+            for (i = 0; i < 350; i++) {
                 var randX = Math.round(Math.random() * window.innerWidth)
                 var randY = Math.round(Math.random() * window.innerHeight)
-                star = two.makeCircle(randX, randY, 1.5)
-                star.fill = '#545454'
+                star = two.makeCircle(randX, randY, Math.random() * 3)
+                star.fill = 'rgba(64, 64, 64,' + (Math.random() * (1 - .5) + .5) + ')'
+                star.noStroke()
             }
             two.update()
         }
@@ -98,36 +100,69 @@
             var elem = document.getElementById('canvas'),
                 logo = document.getElementById('logo')
 
+            elem.style.height = window.innerHeight + "px"
+            elem.style.width = window.innerWidth + "px"
+
             var two = new Two({
                 width: window.innerWidth,
                 height: window.innerHeight
             }).appendTo(elem)
 
-            elem.style.height = window.innerHeight
-            elem.style.width = window.innerWidth
 
             logo.style.top = (window.innerHeight / 2) - (logo.getClientRects()[0].height / 2) + "px"
             logo.style.left = (window.innerWidth / 2) - (logo.getClientRects()[0].width / 2) + "px"
+
             window.setTimeout(function () {
                 logo.style.visibility = 'visible'
                 logo.style.animation = 'fade-in .1s ease-in'
             }, 350)
 
             draw(two)
-            window.onresize = function () {
+            window.addEventListener('resize', function () {
+                elem.style.height = window.innerHeight + "px"
+                elem.style.width = window.innerWidth + "px"
                 logo.style.top = (window.innerHeight / 2) - (logo.getClientRects()[0].height / 2) + "px"
                 logo.style.left = (window.innerWidth / 2) - (logo.getClientRects()[0].width / 2) + "px"
-                two.clear()
                 draw(two)
-            }
+            }, false)
+
+
+            window.addEventListener('scroll', function (e) {
+                // TODO: Make sure scroll is below the navbar, and the navbar's position isn't already fixed
+                if (window.scrollY > window.innerHeight) {
+
+                }
+            })
         }
     </script>
 </head>
 
 <body>
-    <div id="canvas"></div>
-    <div id="logo">PØSER</div>
+    <header>
+        <div id="canvas"></div>
+        <div id="logo"><a href="/">PØSXR</a></div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">HOME</a>
+                </li>
+                <li>
+                    <a href="">COLLECTIONS</a>
+                </li>
+                <li>
+                    <a href="">STORE</a>
+                </li>
+                <li>
+                    <a href="">ART</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <div class="content">
+
+        <div class="banner">
+            <img src="images/banner.jpg">
+        </div>
 
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula nibh eros, id vehicula nunc sollicitudin eget. Nulla iaculis congue imperdiet. Cras dapibus pretium neque, vitae aliquet nibh. Vivamus elementum, quam ut lobortis consectetur, lacus arcu congue ex, nec laoreet orci turpis eu tellus. Nunc efficitur porta venenatis. Proin suscipit massa enim, ut tempus nibh ornare ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a sagittis velit, ut mattis magna.</p>
 
