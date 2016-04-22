@@ -82,23 +82,69 @@
     <!-- Styles and Scripts -->
     <link href="css/fonts.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <script></script>
+    <script src="js/two.js"></script>
+    <script>
+        function draw(two) {
+            var star
+            for (i = 0; i < 300; i++) {
+                var randX = Math.round(Math.random() * window.innerWidth)
+                var randY = Math.round(Math.random() * window.innerHeight)
+                star = two.makeCircle(randX, randY, 1.5)
+                star.fill = '#545454'
+            }
+            two.update()
+        }
+        window.onload = function () {
+            var elem = document.getElementById('canvas'),
+                logo = document.getElementById('logo')
+
+            var two = new Two({
+                width: window.innerWidth,
+                height: window.innerHeight
+            }).appendTo(elem)
+
+            elem.style.height = window.innerHeight
+            elem.style.width = window.innerWidth
+
+            logo.style.top = (window.innerHeight / 2) - (logo.getClientRects()[0].height / 2) + "px"
+            logo.style.left = (window.innerWidth / 2) - (logo.getClientRects()[0].width / 2) + "px"
+            window.setTimeout(function () {
+                logo.style.visibility = 'visible'
+                logo.style.animation = 'fade-in .1s ease-in'
+            }, 350)
+
+            draw(two)
+            window.onresize = function () {
+                logo.style.top = (window.innerHeight / 2) - (logo.getClientRects()[0].height / 2) + "px"
+                logo.style.left = (window.innerWidth / 2) - (logo.getClientRects()[0].width / 2) + "px"
+                two.clear()
+                draw(two)
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <span class="logo">PØSER</span>
-            <!--
-           <ul>
-    <li><a>Home</a></li>
-    <li><a>Collections</a></li>
-    <li><a>Shop</a></li>
-    <li><a>ART</a></li>
-</ul>
--->
-        </nav>
-    </header>
+    <div id="canvas"></div>
+    <div id="logo">PØSER</div>
+    <div class="content">
+
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula nibh eros, id vehicula nunc sollicitudin eget. Nulla iaculis congue imperdiet. Cras dapibus pretium neque, vitae aliquet nibh. Vivamus elementum, quam ut lobortis consectetur, lacus arcu congue ex, nec laoreet orci turpis eu tellus. Nunc efficitur porta venenatis. Proin suscipit massa enim, ut tempus nibh ornare ac. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a sagittis velit, ut mattis magna.</p>
+
+        <p>Nulla efficitur, enim sed dapibus finibus, arcu quam placerat arcu, vel faucibus purus enim vitae velit. Suspendisse eu urna lobortis, egestas lectus vestibulum, sodales justo. Ut non quam quis turpis rutrum suscipit non nec magna. Pellentesque eget dictum nibh, nec pretium velit. Donec eget vestibulum libero. Vivamus vel sapien ante. Mauris faucibus accumsan lacus, ut mollis ex tristique scelerisque.</p>
+
+        <p>Fusce hendrerit nec dolor et malesuada. Morbi ullamcorper maximus dolor id finibus. Curabitur non erat quam. In hendrerit maximus magna, sit amet aliquet risus elementum vel. Cras ultrices a dui sed elementum. Mauris id tincidunt diam. Nulla non lacinia urna, non consequat augue. Nam tincidunt eget felis eget dapibus. Pellentesque sed cursus sem. Nunc non est iaculis metus efficitur efficitur.</p>
+
+        <p> Curabitur rhoncus justo imperdiet laoreet porttitor. Cras convallis eget tortor in suscipit. Proin tincidunt velit id ex facilisis tincidunt. Nulla facilisi. Sed accumsan sem eu suscipit commodo. Quisque placerat nibh sit amet nibh imperdiet aliquet at id dolor. Aliquam feugiat tempus sodales. Suspendisse potenti. Vivamus luctus tincidunt porttitor. Fusce eu luctus lacus, vitae sagittis odio. Curabitur molestie erat neque, in lobortis velit aliquet eget. Sed id mattis sapien.</p>
+
+        <p>Donec id congue lorem. Ut nec orci consequat, congue nulla non, suscipit mi. Nullam non nulla nec mauris imperdiet euismod. Mauris dapibus finibus ligula, id luctus felis efficitur ut. Maecenas eget condimentum turpis, et mattis lorem. Suspendisse potenti. Curabitur at tincidunt orci, in imperdiet lacus. Donec sagittis, mi sed tempor egestas, ante eros convallis orci, eu fermentum diam elit vehicula tortor. In tincidunt eget libero in placerat. Donec auctor metus sit amet enim dignissim, in venenatis eros tincidunt.</p>
+
+        <p>Nulla ullamcorper ex ante, ac dictum ante laoreet et. Proin finibus, lacus vitae ornare dictum, dolor tortor accumsan nunc, eget condimentum purus est a erat. Fusce pulvinar sapien enim, in lacinia odio eleifend sed. Nullam id sollicitudin ante. Pellentesque nec justo odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ut odio gravida, auctor ex et, pharetra tellus. Morbi mollis felis id purus luctus, et lobortis leo iaculis. Nam tempor velit quis pellentesque suscipit. Mauris ultricies tortor id nisl facilisis, at facilisis ante tincidunt. Nullam libero ante, dictum non nulla non, varius venenatis tortor. Duis turpis purus, vehicula non fermentum sit amet, fermentum lobortis lorem. Duis id tellus non ex maximus placerat a eu dui. Morbi eu lectus id mauris tempus volutpat. Etiam eu sodales diam.</p>
+
+        <p>Aliquam tellus odio, pellentesque vitae nisl ut, euismod consequat dui. Praesent a odio eget nulla placerat ornare. Ut vel elit id arcu consectetur blandit quis id purus. Sed elementum est vel nunc auctor euismod. Donec suscipit justo sed ante rutrum placerat. Integer et dolor facilisis, tristique lectus in, venenatis odio. Phasellus a ligula quam. Duis hendrerit lectus vitae elit mattis pulvinar. Nam neque nisi, posuere porta blandit vel, commodo et neque. Integer lobortis sodales mollis. Nam pulvinar egestas tincidunt. Proin ex urna, ultricies et vehicula quis, sollicitudin eget tellus. Etiam condimentum nisi turpis, sit amet posuere odio interdum quis.</p>
+
+        <p>Duis feugiat eu arcu at rutrum. Morbi facilisis magna eu odio venenatis, id finibus nulla placerat. Ut fermentum velit eu lorem dignissim cursus sed quis diam. Quisque sagittis ex quam, ut volutpat nibh ullamcorper ut. Aliquam euismod tortor in nisl viverra congue. Morbi cursus metus enim. Phasellus tempus condimentum sagittis. In hac habitasse platea dictumst. Donec luctus in tellus eget euismod. Suspendisse potenti.</p>
+    </div>
 </body>
 
 </html>
